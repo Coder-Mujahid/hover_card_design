@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+* {
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+ul {
+    list-style: none;
+}
+.card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+}
+.card .single-box {
+    flex-basis: 33%;
+    height: 400px;
+    margin: 50px 20px;
+    /* background: #000; */
+    position: relative;
+    clip-path: circle(30%);
+    transition: 0.5s all linear;
+    text-align: center;
+    overflow: hidden;
+    animation: cat 2s 2 linear;
+}
+@keyframes cat {
+    0% {
+        clip-path: circle(30%);
+    }
+    50% {
+        clip-path: circle(45%);
+    }
+    100% {
+        clip-path: circle(30%);
+    }
+    
+}
+.card .single-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: rgba(0,0,0,0.0);
+    transition: 0.5s all linear;
+}
+.card .single-box:hover {
+    clip-path: circle(45%);
+}
+.card .single-box:hover::before {
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+}
+.card .single-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card .single-box .content {
+    position: absolute;
+    left: 50%;
+    top: 120%;
+    transform: translate(-50%,-50%);
+    transition: 0.5s all ease;
+    transition-delay: 0.5s;
+}
+.card .single-box .content h2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+}
+.card .single-box .content ul{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.card .single-box .content ul li a i {
+    color: #fff;
+    font-size: 20px;
+    transition: 0.8s all ease;
+}
+.card .single-box:hover .content {
+    top: 70%;
+}
+.card .single-box .content ul li a i:hover {
+    color: #ddd;
+    transform: rotate(360deg);
+}
